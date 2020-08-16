@@ -1,0 +1,130 @@
+<html>
+<head>
+<style>
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.button {
+  border-radius: 20px;
+  background-color: #4a4a3f;
+  border: 4px solid black;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  font-face: 'Comic Sans ms';
+  padding: 15px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 20px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 400px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  
+}
+
+</style>
+</head>
+
+
+
+<body background="C:\Users\user\Desktop\drogon\wallpaper\backg.jpg">
+<form action="action_page.php">
+  <div class="imgcontainer">
+    <img src="C:\Users\user\Desktop\drogon\wallpaper\kh.jpg" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b><Username</b></label>
+    <br><input type="text" placeholder="Enter Username" name="uname" required></br>
+
+    <label for="psw"><b></b></label>
+    <br><input type="password" placeholder="Enter Password" name="psw" required></br>
+
+    <button class="button" type="submit"><span>Login</span></button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+<button type="button" class="button"><span>Cancel</span></button>
+    <span class="psw"> <a href="#"><button type="button" class="button"><span>Forgot password?</span></a></span>
+  </div>
+
+  
+</form>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<html>
+				
+<script>
+
+
+
+var f;
+var F;
+var fm;
+var Fm;
+var x;
+var c=-1;
+var C=0;
+var i;
+var j;
+var l1=0;
+var l2=0;
+var l3=0;
+var L1=0;
+var L2=0;
+var L3=0;
+var score=1;
+var level=1;
+var T=0;
+
+
+document.documentElement.style.stopflow ='hidden'; 
+
+
+function road(){
+f=setInterval(Road1,1000);}
+
+function Road1(){
+T++;
+document.getElementById("dialogue").innerHTML=4-T;
+if(T==4)
+{
+clearInterval(f);
+document.getElementById("dialogue").innerHTML="GO!!!!!";
+f=setInterval(Road,10);
+document.getElementById("race").play();
+fm=setInterval(fade,100);
+lanei();
+lanej();
+}
+}
+
+function Road(){
+
+
+score++;
+
+var x=document.getElementById("road1").style.top;
+var L=x.length;
+x=x.substring(0,L-2);
+x++;x++;x++;x++;x++;x++;x++;x++;
+document.getElementById("road1").style.top=x+"px";
+
+
+var y=document.getElementById("road2").style.top;
+var L=y.length;
+y=y.substring(0,L-2);
+y++;y++;y++;y++;y++;y++;y++;y++;
+
+document.getElementById("road2").style.top=y+"px";
+
+if(x>=657)
+{document.getElementById("road1").style.top="0px";
+document.getElementById("road2").style.top="-657px";
+}
+
+var car0l=document.getElementById("car0").style.left;
+car0l=position(car0l);
+
+var car1t=document.getElementById("car"+i).style.top;
+car1t=position(car1t);
+var car1l=document.getElementById("car"+i).style.left;
+car1l=position(car1l);
+
+var car2t=document.getElementById("car"+j).style.top;
+car2t=position(car2t);
+var car2l=document.getElementById("car"+j).style.left;
+car2l=position(car2l);
+
+
+if(car1l==380){l1=1;l2=0;l3=0;}
+if(car1l==615){l2=1;l1=0;l3=0;}
+if(car1l==870){l3=1;l1=0;l2=0;}
+
+if(car2l==380){L1=1;L2=0;L3=0;}
+if(car2l==615){L2=1;L1=0;L3=0;}
+if(car2l==870){L3=1;L1=0;L2=0;}
+
+
+
+if(car0l>=993){setTimeout(function(){over();clearInterval(f);},50);}
+if(car0l<=268){setTimeout(function(){over();clearInterval(f);},50);}
+
+if(l1==1 && 290<=car0l && car0l<=480 && car1t>=140 && car1t<=580){setTimeout(function(){over();clearInterval(f);},10);}
+if(l2==1 && 520<=car0l && car0l<=720 && car1t>=140 && car1t<=580){setTimeout(function(){over();clearInterval(f);},10);}
+if(l3==1 && 775<=car0l && car0l<=970 && car1t>=140 && car1t<=580){setTimeout(function(){over();clearInterval(f);},10);}
+
+if(L1==1 && 290<=car0l && car0l<=480 && car2t>=140 && car2t<=580){setTimeout(function(){over();clearInterval(f);},10);}
+if(L2==1 && 520<=car0l && car0l<=720 && car2t>=140 && car2t<=580){setTimeout(function(){over();clearInterval(f);},10);}
+if(L3==1 && 775<=car0l && car0l<=970 && car2t>=140 && car2t<=580){setTimeout(function(){over();clearInterval(f);},10);}
+
+
+for(var P=1;P<=level*2;P++){car1t++;}
+document.getElementById("car"+i).style.top=car1t+"px";
+
+for(var P=1;P<=level*2;P++){car2t++;}
+document.getElementById("car"+j).style.top=car2t+"px";
+
+
+if(car1t>=670)
+{
+document.getElementById("car"+i).style.top="-249px";
+imgi();
+lanei();
+l1=0;
+l2=0;
+l3=0;
+}
+if(car2t>=670)
+{
+var t=Math.floor(Math.random()*400+249);
+t=-t;
+document.getElementById("car"+j).style.top=t+"px";
+imgj();
+lanej();
+L1=0;
+L2=0;
+L3=0;
+}
+if(score%1500==0){level++;}
+}
+
+
+function Move(){
+var p=document.getElementById("car0").style.left;
+p=position(p);
+if(x==39){p++;p++;p++;p++;p++;p++;p++;p++;}
+if(x==37){p--;p--;p--;p--;p--;p--;p--;p--;}
+document.getElementById("car0").style.left=p+"px";
+}
+
+function move()
+{
+if(c==0){x=event.keyCode;F=setInterval(Move,32);c++;}
+}
+
+function stop(){clearInterval(F);c=0;}
+
+function position(Item){
+var L=Item.length;
+Item=Item.substring(0,L-2);
+return Item;
+}
+
+
+function lanei(){i=Math.floor(Math.random()*3+1);}
+function lanej(){j=Math.floor(Math.random()*3+1);}
+function imgi(){
+I=Math.floor(Math.random()*4+1);
+document.getElementById("car"+i).src="C:\\Users\\user\\Desktop\\drogon\\wallpaper\\car"+I+".jpg";
+}
+function imgj(){
+J=Math.floor(Math.random()*4+1);
+document.getElementById("car"+j).src="C:\\Users\\user\\Desktop\\drogon\\wallpaper\\car"+J+".jpg";
+}
+
+
+function fade()
+{
+o1=document.getElementById("dialogue").style.opacity;
+o1=o1-0.1;
+document.getElementById("dialogue").style.opacity=o1;
+if(o1==0){clearInterval(fm);if(C==1){document.getElementById("dialogue").style.opacity=1;document.getElementById("dialogue").innerHTML="YOUR SCORE="+score;C=0;}}
+}
+
+function over(){
+document.getElementById("crash").play();
+document.getElementById("race").src="";
+try{clearInterval(fm);}catch(err){}
+document.getElementById("dialogue").style.opacity=1;
+document.getElementById("dialogue").innerHTML="GAME OVER!!!";
+fm=setInterval(fade,100);
+C=1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<body onload="road()" onkeydown="move()"  onkeyup="stop()">
+
+
+<img id="background" src="C:\Users\user\Desktop\drogon\wallpaper\grass.jpg" style="position:absolute; width:100%; height:100%; top:0px; left:0px;"></img>
+<img id="road1" src="C:\Users\user\Desktop\drogon\wallpaper\road.jpg" style="position:absolute;  top:0px; left:270px;"></img>
+<img id="road2" src="C:\Users\user\Desktop\drogon\wallpaper\road.jpg" style="position:absolute;  top:-657px; left:270px;"></img>
+
+
+
+
+<img id="car1" src="C:\Users\user\Desktop\drogon\wallpaper\car3.jpg" style="position:absolute;  top:-249px; left:380px; border-radius:40px;"></img>
+<img id="car2" src="C:\Users\user\Desktop\drogon\wallpaper\car3.jpg" style="position:absolute;  top:-550px; left:615px; border-radius:40px;"></img>
+<img id="car3" src="C:\Users\user\Desktop\drogon\wallpaper\car3.jpg" style="position:absolute;  top:-300px; left:870px; border-radius:40px;"></img>
+<img id="car0" src="C:\Users\user\Desktop\drogon\wallpaper\car3.jpg" style="position:absolute;  top:350px; left:380px; border-radius:50px;"></img>
+
+
+
+
+<div id="test" style="position:absolute;"></div>
+
+
+<div id="dialogue" style="position:absolute;  top:150px; left:600px; font-size:100;  opacity:1;">Ready?</div>
+<audio id="crash" src="crash.m4a"  >ko</audio>
+<audio id="race" src="race.mp3" loop >ko</audio>
+
+
+
+
+</body>
+
+
+
+
+</html>
