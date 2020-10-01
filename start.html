@@ -1,189 +1,163 @@
 <html>
+
 <head>
 
-<link rel="spreadsheet" type="text/css" href="C:\\Users\\user\\Desktop\\styles.css">
-<style>
-.button {
-  border-radius: 20px;
-  background-color: #000000;
-  border: 4px solid black;
-  color: #ffffff;
-  text-align: center;
-  font-size: 20px;
-  font-face: 'Comic Sans ms';
-  padding: 13px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  
-}
+  <link rel="spreadsheet" type="text/css" href="C:\\Users\\user\\Desktop\\styles.css">
+  <style>
+    .button {
+      border-radius: 20px;
+      background-color: #000000;
+      border: 4px solid black;
+      color: #ffffff;
+      text-align: center;
+      font-size: 20px;
+      font-face: 'Comic Sans ms';
+      padding: 13px;
+      width: 150px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+    }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
 
-.button:hover span {
-  padding-right: 25px;
-}
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
+    .button:hover span {
+      padding-right: 25px;
+    }
 
-#k{
-opacity:1;
-}
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
 
-
-</style>
+    #k {
+      opacity: 1;
+    }
+  </style>
 
 </head>
-				
+
 <script>
 
-i=Math.floor( (Math.random()*12) +1 );
-var f;
-var F;
-function wallpaper(){f=setInterval(chngd,100);}
+  i = Math.floor((Math.random() * 12) + 1);
+  var f;
+  var F;
+  function wallpaper() { f = setInterval(chngd, 100); }
 
-function chngd(){
-o1=document.getElementById("w"+i).style.opacity;
-document.getElementById("w"+i).style.opacity=o1-0.1;
-if(o1==0.1){i=Math.floor( (Math.random()*12) +1 );}
-if(i==5 || i==8){i=1;}
-o1=document.getElementById("w"+i).style.opacity;
-if(o1==0)
-{
-clearInterval(f);
-f=setInterval(chngi,100);
-}
-}
+  function chngd() {
+    o1 = document.getElementById("w" + i).style.opacity;
+    document.getElementById("w" + i).style.opacity = o1 - 0.1;
+    if (o1 == 0.1) { i = Math.floor((Math.random() * 12) + 1); }
+    if (i == 5 || i == 8) { i = 1; }
+    o1 = document.getElementById("w" + i).style.opacity;
+    if (o1 == 0) {
+      clearInterval(f);
+      f = setInterval(chngi, 100);
+    }
+  }
 
 
-function chngi(){
-o1=document.getElementById("w"+i).style.opacity;
-o1=o1*10;
-o1++;
-o1=o1/10;
-document.getElementById("w"+i).style.opacity=o1;
-if(o1==1){i=Math.floor( (Math.random()*12) +1 );}
-if(i==5 || i==8){i=1;}
-o1=document.getElementById("w"+i).style.opacity;
-if(o1>=1)
-{
-clearInterval(f);
-f=setInterval(chngd,100);
-}
-}
+  function chngi() {
+    o1 = document.getElementById("w" + i).style.opacity;
+    o1 = o1 * 10;
+    o1++;
+    o1 = o1 / 10;
+    document.getElementById("w" + i).style.opacity = o1;
+    if (o1 == 1) { i = Math.floor((Math.random() * 12) + 1); }
+    if (i == 5 || i == 8) { i = 1; }
+    o1 = document.getElementById("w" + i).style.opacity;
+    if (o1 >= 1) {
+      clearInterval(f);
+      f = setInterval(chngd, 100);
+    }
+  }
 
 
 
 
-function slide(){
-F=setInterval(Slide,10);
-}
+  function slide() {
+    F = setInterval(Slide, 10);
+  }
 
-function Slide(){
+  function Slide() {
 
-var l0=document.getElementById("back0").style.left;
-L0=l0.length;
-l0=l0.substring(0,(L0-2));
-l0=l0-10;
-document.getElementById("back0").style.left=l0+"px";;
+    var l0 = document.getElementById("back0").style.left;
+    L0 = l0.length;
+    l0 = l0.substring(0, (L0 - 2));
+    l0 = l0 - 10;
+    document.getElementById("back0").style.left = l0 + "px";;
 
-var l1=document.getElementById("back1").style.left;
-L1=l1.length;
-l1=l1.substring(0,(L1-2));
-l1=l1-6;
-document.getElementById("back1").style.left=l1+"px";;
-
-
-if(l0==-640){clearTimeout(F);}
-
-}
+    var l1 = document.getElementById("back1").style.left;
+    L1 = l1.length;
+    l1 = l1.substring(0, (L1 - 2));
+    l1 = l1 - 6;
+    document.getElementById("back1").style.left = l1 + "px";;
 
 
+    if (l0 == -640) { clearTimeout(F); }
 
-function login(){window.location.href="C:\\Users\\user\\Desktop\\drogon\\login.html";}
-function signup(){window.location.href="C:\\Users\\user\\Desktop\\drogon\\signup.html";}
-function demo(){window.location.href="C:\\Users\\user\\Desktop\\drogon\\demo.html";}
+  }
+
+  function login() { window.location.href = "login.html"; }
+  function signup() { window.location.href = "signup.html"; }
+  function demo() { window.location.href = "demo.html"; }
 </script>
 
 
+<body onload="wallpaper()">
+
+  <img id="back" src="wallpaper\black.jpg"
+    style="position:absolute; opacity:1; width:100%; height:100%; left:0px; top:0px;"></img>
 
 
+  <div id="back0" style="position:absolute; opacity:1; top:120px; left:350px;">
+    <div id="k"><button class="button type=" button" onclick="slide()"
+        style="position:absolute; top:160px; left:100px;"><span>Start</span></button></div>
+    <img id="Back0" src="wallpaper\0.jpg"></img>
+  </div>
 
 
-
-<body onload="wallpaper()" >
-
-<img id="back" src=" C:\Users\user\Desktop\drogon\wallpaper\black.jpg" style="position:absolute; opacity:1; width:100%; height:100%; left:0px; top:0px;"></img>
-
-
-<div id="back0" style="position:absolute; opacity:1; top:120px; left:350px;">
-<div id="k"><button class="button type="button" onclick="slide()" style="position:absolute; top:160px; left:100px;"><span>Start</span></button></div>
-<img id="Back0" src=" C:\Users\user\Desktop\drogon\wallpaper\0.jpg" ></img>
-</div>
+  <div id="back1" style="position:absolute; opacity:1; top:257px; left:1000px;">
+    <button class="button type=" button" onclick="login()"
+      style="position:absolute; left:0px;"><span>Login</span></button>
+    <button class="button type=" button" onclick="signup()" style="position:absolute; left:150px; "><span>Sign
+        up</span></button>
+    <button class="button type=" button" onclick="demo()" style="position:absolute;  left:150px; "><span>Take a
+        Ride?</span></button>
+  </div>
 
 
-<div id="back1" style="position:absolute; opacity:1; top:257px; left:1000px;">
-<button class="button type="button" onclick="login()" style="position:absolute; left:0px;"><span>Login</span></button>
-<button class="button type="button" onclick="signup()" style="position:absolute; left:150px; "><span>Sign up</span></button>
-<button class="button type="button" onclick="demo()" style="position:absolute;  left:150px; "><span>Take a Ride?</span></button>
-</div>
+  <img id="w1" src="wallpaper\1.jpg" style="position:absolute; opacity:1;  top:80px; left:100px; "></img>
+  <img id="w2" src="wallpaper\2.jpg" style="position:absolute;  opacity:1;  top:257px; left:100px;"></img>
+  <img id="w3" src="wallpaper\3.jpg" style="position:absolute;  opacity:1;  top:434px; left:100px;"></img>
+  <img id="w4" src="wallpaper\4.jpg" style="position:absolute; opacity:1;  top:80px; left:400px; "></img>
 
+  <img id="w6" src="wallpaper\6.jpg" style="position:absolute;  opacity:1;  top:434px; left:400px;"></img>
+  <img id="w7" src="wallpaper\7.jpg" style="position:absolute; opacity:1;  top:80px; left:699px; "></img>
 
+  <img id="w9" src="wallpaper\9.jpg" style="position:absolute;  opacity:1;  top:434px; left:699px;"></img>
+  <img id="w10" src="wallpaper\10.jpg" style="position:absolute; opacity:1;  top:80px; left:1000px; "></img>
 
+  <img src="wallpaper\black.jpg"
+    style="position:absolute; opacity:1; width:300px; height:168px; top:257px; left:1000px;"></img>
+  <img id="w11" src="wallpaper\11.jpg" style="position:absolute;  opacity:1;  top:257px; left:1000px;"></img>
 
-
-
-
-<img id="w1" src=" C:\Users\user\Desktop\drogon\wallpaper\1.jpg" style="position:absolute; opacity:1;  top:80px; left:100px; "></img>
-<img id="w2" src="C:\Users\user\Desktop\drogon\wallpaper\2.jpg" style="position:absolute;  opacity:1;  top:257px; left:100px;"></img>
-<img id="w3" src="C:\Users\user\Desktop\drogon\wallpaper\3.jpg" style="position:absolute;  opacity:1;  top:434px; left:100px;"></img>
-<img id="w4" src=" C:\Users\user\Desktop\drogon\wallpaper\4.jpg" style="position:absolute; opacity:1;  top:80px; left:400px; "></img>
-
-<img id="w6" src="C:\Users\user\Desktop\drogon\wallpaper\6.jpg" style="position:absolute;  opacity:1;  top:434px; left:400px;"></img>
-<img id="w7" src=" C:\Users\user\Desktop\drogon\wallpaper\7.jpg" style="position:absolute; opacity:1;  top:80px; left:699px; "></img>
-
-<img id="w9" src="C:\Users\user\Desktop\drogon\wallpaper\9.jpg" style="position:absolute;  opacity:1;  top:434px; left:699px;"></img>
-<img id="w10" src=" C:\Users\user\Desktop\drogon\wallpaper\10.jpg" style="position:absolute; opacity:1;  top:80px; left:1000px; "></img>
-
-<img  src=" C:\Users\user\Desktop\drogon\wallpaper\black.jpg" style="position:absolute; opacity:1; width:300px; height:168px; top:257px; left:1000px;"></img>
-<img id="w11" src="C:\Users\user\Desktop\drogon\wallpaper\11.jpg" style="position:absolute;  opacity:1;  top:257px; left:1000px;"></img>
-
-<img id="w12" src="C:\Users\user\Desktop\drogon\wallpaper\12.jpg" style="position:absolute;  opacity:1;  top:434px; left:1000px;"></img>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <img id="w12" src="wallpaper\12.jpg" style="position:absolute;  opacity:1;  top:434px; left:1000px;"></img>
 
 </body>
-
-
-
-
 </html>
